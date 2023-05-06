@@ -13,16 +13,18 @@ jobs:
         run: |
           bash ./trial.sh
       - name: commit
+        uses: actions/checkout@v3
         run: |
           git config --global user.email heyu330182@hotmail.com
           git config --global user.name heyu330182
           git add .
           git commit -m "update:`date`"
-          git push -f git@github.com:heyu330182/vpub.git HEAD
+          git push
       - name: Push changes
         uses: actions/checkout@v3
         with:
          github_token: ${{ secrets.GITHUB_TOKEN }}
+
         
       
       
