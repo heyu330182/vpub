@@ -19,8 +19,6 @@ jobs:
           git add .
           git commit -m "update:`date`"
           git push -f git@github.com:heyu330182/vpub.git HEAD
-        with:
-         github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Push changes
         uses: actions/checkout@v3
         with:
