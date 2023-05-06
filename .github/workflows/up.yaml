@@ -18,7 +18,7 @@ jobs:
           git config --global user.name heyu330182
           git add .
           git commit -m "update:`date`"
-          git push -f git@github.com:heyu330182/vpub.git HEADER:master
+          git push -f git@github.com:heyu330182/vpub.git HEAD
       - name: Push changes
         uses: actions/checkout@v3
         with:
