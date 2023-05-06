@@ -6,7 +6,6 @@ jobs:
   build:
     runs-on: ubuntu-latest 
     steps:
-      - uses: actions/checkout@v3
       - name: checkout codes
         uses: actions/checkout@v1
       - name: update vpub
@@ -14,18 +13,16 @@ jobs:
         run: |
           bash ./trial.sh
       - name: commit
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.email heyu330182@hotmail.com
           git config --global user.name heyu330182
           git add .
           git commit -m "update:`date`"
-          git push origin HEAD:master
       - name: Push changes
-        uses: actions/checkout@v3
+        uses: ad-m/github-push-action@master
         with:
          github_token: ${{ secrets.GITHUB_TOKEN }}
+         branch: master
 
         
       
